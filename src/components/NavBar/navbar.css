@@ -1,0 +1,30 @@
+.navbar{
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 3px solid rgb(206, 211, 54);
+}
+.navbar .logo{
+  width: 100px;
+  height: 100px;
+}
+.menu{
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+ .menu li:hover{
+  cursor:e-resize ;
+  border-bottom: 3px solid rgb(206, 211, 54)      ;
+ }
+
+.menu .category{
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+}
+.menu li{
+  padding: 0 20px;
+  
+}
