@@ -21,7 +21,7 @@ const ItemDetail = ({ product = {} }) => {
           <img src={product.image} className="item-detail-image"  alt="" />
         </div>
         <div className='item-detail-text-content'>
-          <p className='item-detail-text'>{product.title}</p>
+          <p className='item-detail-text'>{product.name}</p>
           <p className='item-detail-text-description'>{product.description}</p>
           <p className='item-detail-text'>Price: ${product.price}</p> 
           <ItemCount stock={product.stock} addProduct={addProduct} />
