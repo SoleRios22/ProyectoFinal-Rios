@@ -2,31 +2,35 @@ import "./NavBar.css";
 import logoTienda from "../../assets/Icono.png";
 import CartWdidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import { useCategorias } from "../../hooks/useCategory";
 
 const NavBar = () => {
 
+    const { categorias, loading } = useCategorias();
     return(
-        <div className="navbar">
+        <div className="sidebar">
+            
         <Link to = "/" >
            <img className="logo" src={logoTienda} alt="" />
         </Link>
+         <div className="cart-widget">
+            <CartWdidget />
+           </div>
 
-           <ul className="menu">
-                <li>
-                    <Link to="/category/frutos" className="category"> Frutos Secos </Link>
-                </li>
-                <li>
-                    <Link to="/category/cereales" className="category"> Cereales </Link>
-                </li>
-                <li>
-                    <Link to="/category/harinas" className="category"> Harinas </Link>
-                </li>
-                <li>
-                    <Link to="/category/semillas" className="category"> Semillas </Link>
-                </li>
+           <ul className="category-list">
+                {loading ? (<li>Cargando...</li>
+        ) : (
+          categorias.map((cat, i) => (
+            <li key={i}>
+              <Link to={`/category/${encodeURIComponent(cat.toLowerCase())}`} className="category">
+                {cat}
+              </Link>
+            </li>
+          ))
+        )}
+              
            </ul>
-
-           <CartWdidget />
+          
         </div>
     )
 };
