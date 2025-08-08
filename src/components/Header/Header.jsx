@@ -1,7 +1,7 @@
 // src/components/Header/Header.jsx
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaFacebook, FaInstagram } from "react-icons/fa";
-import "./Header.css";
+import "./header.css";
 
 const Header = () => {
   return (

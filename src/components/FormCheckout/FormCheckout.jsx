@@ -1,5 +1,5 @@
 import React from 'react';
-import './formCheckout.css';
+import './FormCheckout.css';
 
 const FormCheckout = ({dataForm, handleChangeInput, sentOrder}) => {
   return (
