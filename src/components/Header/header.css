@@ -3,7 +3,8 @@
 .main-header {
   width: 100%;
   height: 60px;
-  background-color: #ffffff;
+  
+  background-image:  linear-gradient(to bottom, rgb(206, 211, 54), #dcdcdc);
   border-bottom: 1px solid #ddd;
   display: flex;
   align-items: center;

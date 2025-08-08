@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext";
 import FormCheckout from "../FormCheckout/FormCheckout";
 import { addDoc, collection } from "firebase/firestore";
 import db from "../../db/db";
-
+import "./checkout.css";
 const Checkout = () => {
     const [dataForm, setDataForm] = useState({
         fullname: "",
@@ -48,9 +48,10 @@ const Checkout = () => {
     <div className="checkout">
         {
           orderId ? (
-            <div>
-                <h2>Gracias por tu compra!</h2>
-                <p>Tu ID de orden es: {orderId}</p>
+            <div className="checkout-confirmation">
+                <h2 className="checkout-title">Gracias por tu compra!</h2>
+                <p className="checkout-message" >Tu ID de orden es: </p>
+                    <p  className="order-id">{orderId}</p>
             </div>
           ):(<FormCheckout dataForm={dataForm} handleChangeInput={handleChangeInput} sentOrder={sentOrder}    />) 
         }

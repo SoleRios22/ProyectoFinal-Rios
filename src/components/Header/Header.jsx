@@ -10,9 +10,7 @@ const Header = () => {
         <h1 className="header-title">Mi Tienda</h1>
       </div>
       <div className="header-right">
-        <Link to="/cart" className="header-icon">
-          <FaShoppingCart />
-        </Link>
+        
         <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="header-icon">
           <FaFacebook />
         </a>

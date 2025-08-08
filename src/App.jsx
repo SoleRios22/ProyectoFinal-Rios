@@ -20,7 +20,9 @@ import Header from "./components/Header/Header";
           
        
           <div className="layout-wrapper">
-            <NavBar />
+            <div className="sidebar">
+              <NavBar />
+            </div>
             <div className="main-content">
               <Routes>
                 <Route path="/" element={<ItemListContainer />} />

@@ -8,18 +8,3 @@
   min-height: 100vh;
 }
 
-/* Contenedor de layout: sidebar + contenido */
-.layout-wrapper {
-  display: flex;
-  align-items: flex-start;
-  flex-grow: 1;
-}
-
-/* Contenido principal (a la derecha de la sidebar) */
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-

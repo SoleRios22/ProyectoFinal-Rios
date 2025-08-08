@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './formCheckout.css';
 
 const FormCheckout = ({dataForm, handleChangeInput, sentOrder}) => {
   return (
@@ -6,7 +7,7 @@ const FormCheckout = ({dataForm, handleChangeInput, sentOrder}) => {
         <form onSubmit={sentOrder} className="form-checkout">
             <h2>Checkout</h2>
             <div className="content-input">
-                <label classname="label">Nombre completo: </label>
+                <label className="label">Nombre completo: </label>
                 <input type="text" name="fullname" value={dataForm.fullname} onChange={handleChangeInput}/>
             </div>
 

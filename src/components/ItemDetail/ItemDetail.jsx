@@ -2,6 +2,7 @@ import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import {Link} from "react-router-dom";
 
 
 
@@ -15,6 +16,8 @@ const ItemDetail = ({ product = {} }) => {
 
   }
 
+  const sinStock=product.stock===0;
+
   return (
     <div className='item-detail'>
         <div className='item-detail-image-content'>
@@ -22,9 +25,17 @@ const ItemDetail = ({ product = {} }) => {
         </div>
         <div className='item-detail-text-content'>
           <p className='item-detail-text'>{product.name}</p>
-          <p className='item-detail-text-description'>{product.description}</p>
-          <p className='item-detail-text'>Price: ${product.price}</p> 
-          <ItemCount stock={product.stock} addProduct={addProduct} />
+          <p className='item-detail-text-description'>Descripción: {product.description}</p>
+          <p className='item-detail-text'>Precio: ${product.price}</p> 
+
+          {sinStock ? (
+            <p className="sin-stock">⚠️ Producto sin stock disponible</p>):(
+          <ItemCount stock={product.stock} addProduct={addProduct} />)}
+
+             <div className="botones-extra">
+          <Link to="/" className="btn-navegacion">Volver al inicio</Link>
+         
+        </div>  
         </div> 
     </div>
   )

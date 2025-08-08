@@ -1,5 +1,6 @@
 import Item from "../Item/Item";
 import hocFilterProducts from "../../hoc/hocFilterProducts";
+import "./itenList.css";
 
 const ItemList = ({ products=[] }) => {
   return (

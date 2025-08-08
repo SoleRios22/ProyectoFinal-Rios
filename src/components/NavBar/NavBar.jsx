@@ -3,26 +3,35 @@ import logoTienda from "../../assets/Icono.png";
 import CartWdidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 import { useCategorias } from "../../hooks/useCategory";
+import {useState} from "react";
 
 const NavBar = () => {
 
     const { categorias, loading } = useCategorias();
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return(
-        <div className="sidebar">
+        <div className="navbar">
             
         <Link to = "/" >
            <img className="logo" src={logoTienda} alt="" />
         </Link>
-         <div className="cart-widget">
-            <CartWdidget />
-           </div>
+         
+          {/* Botón hamburguesa */}
+      <button
+        className="menu-toggle"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle Menu"
+      >
+        ☰
+      </button>
 
-           <ul className="category-list">
+           <ul className={`menu ${menuOpen ? "open" : ""}`}>
                 {loading ? (<li>Cargando...</li>
         ) : (
           categorias.map((cat, i) => (
             <li key={i}>
-              <Link to={`/category/${encodeURIComponent(cat.toLowerCase())}`} className="category">
+              <Link to={`/category/${encodeURIComponent(cat.toLowerCase())}`} className="category" onClick={() => setMenuOpen(false)} >
                 {cat}
               </Link>
             </li>
@@ -30,6 +39,9 @@ const NavBar = () => {
         )}
               
            </ul>
+           <div className="cart-widget">
+            <CartWdidget />
+           </div>
           
         </div>
     )

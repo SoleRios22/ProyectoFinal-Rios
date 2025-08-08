@@ -1,4 +1,5 @@
 import { createContext,useState} from "react";
+import Swal from "sweetalert2";
 
 const CartContext = createContext();
 
@@ -6,24 +7,52 @@ const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
 
 
-const addProductInCart = (productToAdd) => {
-  // Verificamos si el producto ya está en el carrito
-  const existingProduct = cart.find(product => product.id === productToAdd.id);
+const addProductInCart = (product) => {
+  const productInCart = cart.find((item) => item.id === product.id);
 
-  if (existingProduct) {
-    // Si el producto existe, mapeamos el carrito para actualizar su cantidad
-    setCart(
-      cart.map(product =>
-        product.id === productToAdd.id
-          ? { ...product, quantity: product.quantity + 1 }
-          : product
-      )
+  if (productInCart) {
+    let newQuantity = productInCart.quantity + product.quantity;
+
+    if (newQuantity > product.stock) {
+      newQuantity = product.stock;
+      Swal.fire({
+        icon: "warning",
+        title: "Stock insuficiente",
+        html: `
+          <p>No puedes agregar más de <b>${product.stock}</b> unidades.</p>
+          <img src="${product.image}" alt="${product.name}" style="max-width:150px; margin-top:10px; border-radius:8px;" />
+        `,
+        confirmButtonColor: "#3085d6",
+      });
+    }
+
+    const updatedCart = cart.map((item) =>
+      item.id === product.id
+        ? { ...item, quantity: newQuantity }
+        : item
     );
+    setCart(updatedCart);
   } else {
-    // Si el producto no existe, lo agregamos al carrito con una cantidad de 1
-    setCart([...cart, { ...productToAdd, quantity: 1 }]);
+    let quantityToAdd =
+      product.quantity > product.stock ? product.stock : product.quantity;
+
+    if (product.quantity > product.stock) {
+      Swal.fire({
+        icon: "warning",
+        title: "Stock insuficiente",
+        html: `
+          <p>Solo hay <b>${product.stock}</b> unidades disponibles.</p>
+          <img src="${product.image}" alt="${product.name}" style="max-width:150px; margin-top:10px; border-radius:8px;" />
+        `,
+        confirmButtonColor: "#3085d6",
+      });
+    }
+
+    setCart([...cart, { ...product, quantity: quantityToAdd }]);
   }
 };
+
+
    
     const totalQuantity=()=>{
         const total=cart.reduce((total, product)=> total + product.quantity, 0);

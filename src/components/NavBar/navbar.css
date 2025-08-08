@@ -1,49 +1,86 @@
-/* NavBar.css */
-.sidebar {
-  width: 220px;
-  background-color: #f4f4f4;
-  border-right: 1px solid #ddd;
-  padding: 20px;
-  box-sizing: border-box;
+.navbar{
+  background-color: white;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
+  align-items: center ;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  padding: 1rem;
+  position:relative;
+  border-bottom: 3px solid rgb(206, 211, 54);
+  border-top: 3px solid rgb(206, 211, 54);
 }
-
-.cart-widget {
-  margin-bottom: 20px;
-}
-
-.logo {
+.navbar .logo{
   width: 100px;
-  margin-bottom: 30px;
+  height: 100px;
+  display: flex ;
 }
-
-.category-list {
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.menu{
+  display: flex;
+ gap: 1rem;
   list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  flex-grow: 1;
 }
+ .menu li:hover{
+  cursor:e-resize ;
+  border-bottom: 3px solid rgb(206, 211, 54)      ;
+ }
 
-.category-list li {
-  margin: 10px 0;
-  text-align: center;
-}
-
-.category-link {
+.menu .category{
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  display: block;
-  padding: 8px;
-  border-radius: 5px;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+}
+.menu li{
+ padding: 0.5rem 0;
+  
+}
+.navbar .cart-widget {
+  display: flex;
+  align-items: center;
 }
 
-.category-link:hover {
-  background-color: #ddd;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px; /* debajo de la navbar */
+    left: 0;
+    background-color: #f2f2f2;
+    padding: 1rem;
+    z-index: 1000;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .cart-widget {
+    order: 3;
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .logo-link {
+    order: 1;
+  }
+
+  .menu-toggle {
+    order: 2;
+  }
 }

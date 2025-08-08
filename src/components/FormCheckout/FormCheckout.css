@@ -1,0 +1,86 @@
+/* Contenedor del formulario */
+.form-checkout {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Título */
+.form-checkout h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 1rem;
+}
+
+/* Campo individual */
+.content-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Etiquetas */
+.label {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+/* Botón de envío */
+.button-send-order {
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-send-order:hover {
+  background-color: #43a047;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-checkout {
+    padding: 1.5rem;
+  }
+
+  .form-checkout h2 {
+    font-size: 1.5rem;
+  }
+
+  input {
+    font-size: 0.95rem;
+  }
+
+  .button-send-order {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,63 @@
+/* Contenedor principal del checkout */
+.checkout {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+/* Contenedor de la confirmación */
+.checkout-confirmation {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Título */
+.checkout-title {
+  font-size: 2rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+/* Mensaje */
+.checkout-message {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* ID de orden */
+.order-id {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1976d2;
+  word-break: break-all;
+  background-color: #e3f2fd;
+  padding: 0.75rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .checkout-confirmation {
+    padding: 1.5rem;
+  }
+
+  .checkout-title {
+    font-size: 1.5rem;
+  }
+
+  .checkout-message,
+  .order-id {
+    font-size: 1rem;
+  }
+}

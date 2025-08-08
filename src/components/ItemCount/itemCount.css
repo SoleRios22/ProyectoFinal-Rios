@@ -1,0 +1,46 @@
+.item-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: sans-serif;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.count {
+  font-size: 1.2rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.btn-control {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-control:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-add {
+  padding: 0.5rem 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #45a049;
+}

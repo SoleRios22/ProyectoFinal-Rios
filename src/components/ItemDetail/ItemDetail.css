@@ -1,29 +1,125 @@
-.item-detail{
-  width: 100%;
-  display: flex;
-}
-.item-detail-image-content{
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.item-detail-image{
-  width: 70%;
-}
-.item-detail-text-content{
-  width: 50%;
-  padding: 0 40px;
+/* Contenedor principal */
+.item-detail {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.item-detail-text{
-  padding: 50px 0;
-  font-size: 40px;
-  color: black;
+
+/* Contenedor de la imagen */
+.item-detail-image-content {
+  flex: 1;
+  text-align: center;
 }
-.item-detail-text-description{
-  font-size: 20px;
-  color: black;
+
+.item-detail-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de texto */
+.item-detail-text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.item-detail-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.item-detail-text-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  font-style: italic;
+}
+
+/* Precio */
+.item-detail-text-content p:last-of-type {
+  font-size: 1.25rem;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* Estilos del contador (en caso de que necesite adaptación visual) */
+.item-detail .item-count {
+  margin-top: 1rem;
+  align-self: center;
+}
+
+/* Responsive: adaptar para pantallas pequeñas */
+@media (min-width: 768px) {
+  .item-detail {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .item-detail-image-content,
+  .item-detail-text-content {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .item-detail-text {
+    font-size: 1.2rem;
+  }
+
+  .item-detail-text-description {
+    font-size: 0.95rem;
+  }
+}
+
+.sin-stock {
+  color: #d32f2f;
+  font-weight: bold;
+  background-color: #ffebee;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.botones-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn-navegacion {
+  background-color: #1976d2;
+  color: white;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-navegacion:hover {
+  background-color: #125a9c;
+}
+
+@media (min-width: 768px) {
+  .botones-extra {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
