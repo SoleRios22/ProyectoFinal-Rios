@@ -15,12 +15,13 @@ const Checkout = () => {
     });
 
     const [orderId, setOrderId] = useState(null);
-    const { cart, totalPrice } = useContext(CartContext);
+    const { cart, totalPrice , clearCart} = useContext(CartContext);
+    const[orderSent, setOrderSent] = useState(false);
     const navigate = useNavigate();
 
     // 🔹 Verifica si el carrito está vacío y alerta
     useEffect(() => {
-        if (cart.length === 0) {
+        if (cart.length === 0 && !orderSent) {
             Swal.fire({
                 icon: "warning",
                 title: "Carrito vacío",
@@ -31,7 +32,7 @@ const Checkout = () => {
                 navigate("/"); // Cambia a "/tienda" si tienes esa ruta
             });
         }
-    }, [cart, navigate]);
+    }, [cart, navigate, orderSent]);
 
     const handleChangeInput = (event) => {
         setDataForm({ ...dataForm, [event.target.name]: event.target.value });
@@ -52,6 +53,17 @@ const Checkout = () => {
             const orderRef = collection(db, "orders");
             const response = await addDoc(orderRef, order);
             setOrderId(response.id);
+            clearCart(); // Limpia el carrito después de la compra
+            setOrderSent(true);
+            Swal.fire({
+            icon: "success",
+            title: "¡Gracias por tu compra!",
+            text: `Tu ID de orden es: ${response.id}`,
+            confirmButtonText: "Volver al inicio",
+            confirmButtonColor: "#3085d6"
+        }).then(() => {
+            navigate("/");
+        });
         } catch (error) {
             console.log(error);
         }
